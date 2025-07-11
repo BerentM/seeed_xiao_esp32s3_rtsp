@@ -9,10 +9,10 @@ This library provides a simple interface for connecting to WiFi networks with re
 
 void setup() {
     Serial.begin(115200);
-    
+
     // Connect to WiFi with retry logic
     bool connected = ConnectToWiFi("your_ssid", "your_password", 10);
-    
+
     if (connected) {
         Serial.println("Connected to WiFi successfully!");
         Serial.print("IP Address: ");

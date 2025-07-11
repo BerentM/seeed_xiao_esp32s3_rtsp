@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <const.h>
 #include <secrets.h>
-#include <WiFi.h>
 #include <WiFiManager.h>
 
 // LED blink task function
@@ -41,8 +40,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Local IP: ");
-  Serial.println(WiFi.localIP().toString());
+  Serial.println("Board is running...");
   delay(5000);
 }
 
