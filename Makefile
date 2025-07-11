@@ -16,7 +16,7 @@ update:        ## Update PlatformIO packages and platforms
 monitor:       ## Open serial monitor
 	platformio device monitor
 
-tests:         ## Run PlatformIO tests
+test:         ## Run PlatformIO tests
 	platformio test
 
 list_ports:    ## List available serial ports
