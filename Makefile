@@ -1,4 +1,4 @@
-.PHONY: build upload clean update monitor tests list_ports envs help
+.PHONY: build upload clean update monitor test list_ports envs help
 
 # Default target: Build the project
 build:         ## Build the project

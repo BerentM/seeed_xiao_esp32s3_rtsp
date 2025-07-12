@@ -7,19 +7,20 @@ bool ConnectToWiFi(const char* ssid, const char* password, int maxRetries) {
   while (WiFi.status() != WL_CONNECTED && (maxRetries == 0 || retryCount < maxRetries)) {
     Serial.print("Attempting to connect to WiFi. SSID: ");
     Serial.println(ssid);
-    while (WiFi.status() != WL_CONNECTED) {
-      // Wait up to 20 seconds per attempt
-      if (waitTime < 20000) {
-        waitTime += 5000;
+    if (WiFi.status() != WL_CONNECTED) {
+      // Wait up to 10 seconds per attempt
+      if (waitTime < 10000) {
+        waitTime += 2500;
       }
       delay(waitTime);
-    }
-    retryCount++;
-    if (WiFi.status() != WL_CONNECTED) {
-      Serial.println("Connection failed, retrying...");
-      delay(1000);
-      WiFi.disconnect();
-      WiFi.begin(ssid, password);
+      retryCount++;
+      if (WiFi.status() != WL_CONNECTED) {
+        Serial.println("Connection failed, retrying...");
+        Serial.print("Retry count: ");
+        Serial.println(retryCount);
+        WiFi.disconnect();
+        WiFi.begin(ssid, password);
+      }
     }
   }
   return WiFi.status() == WL_CONNECTED;
